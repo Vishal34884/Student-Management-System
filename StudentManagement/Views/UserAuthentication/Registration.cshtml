@@ -1,0 +1,122 @@
+﻿@model StudentManagement.Models.DTO.RegistrationModel
+
+
+<style>
+	form {
+			background-color:white;
+            border: 3px solid #f1f1f1;
+            width: 100%;
+            margin: auto;
+            margin-top: 10%;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .container {
+            padding: 16px;
+        }
+        .log{
+            height:30%;
+            width:25%;
+            float : right;
+        }
+
+        .msg {
+            padding: 0px;
+        }
+
+
+        .err {
+            color: red;
+        }
+</style>
+
+<link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 center-block">
+			<h3 style="text-align:center;"> User Registration</h3>
+			<form asp-action="Registration" method="post" class="abc">
+			<center>
+				<table>
+					<tr>
+						<td><label>Student Id</label></td>
+						<td><input type="text" class="form-control" asp-for="StudentId" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><span class="text-danger" asp-validation-for="StudentId"></span></td>
+					</tr>
+					<tr>
+				            <td><label>Student Name</label></td>
+						<td><input type="text" class="form-control" asp-for="StudentName" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><span class="text-danger" asp-validation-for="StudentName"></span></td>
+					</tr>
+					<tr>
+			                 <td><label>Department</label></td>
+						<td><input type="text" class="form-control" asp-for="Department" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><span class="text-danger" asp-validation-for="Department"></span></td>
+					</tr>
+					<tr>
+			              <td><label>Email</label></td>
+						<td><input type="text" class="form-control" asp-for="Email" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><span class="text-danger" asp-validation-for="Email"></span> </td>
+					</tr>
+					<tr>
+						<td><label>Username</label></td>
+						<td><input type="text" class="form-control" asp-for="Username" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><span class="text-danger" asp-validation-for="Username"></span></td>
+					</tr>
+					 <tr>             
+						<td><label>Password (eg. John@123)</label></td>
+						<td><input type="password" class="form-control" asp-for="Password" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><span class="text-danger" asp-validation-for="Password"></span></td>
+					</tr>   
+					<tr>         
+						<td><label>Password confirm</label></td>
+						<td><input type="password" class="form-control" asp-for="PasswordConfirm" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><span class="text-danger" asp-validation-for="PasswordConfirm"></span></td>
+					</tr>
+					<tr>
+						<td colspan="2">  @if (TempData["msg"] != null)
+                              	 {
+								<span class="text-info">@TempData["msg"]</span>
+                                	 }     
+						</td>
+					</tr>
+				</table>   
+				<button type="submit" class="btn btn-info">Add Student</button>
+			</center>
+			</form>
+		</div>
+	</div>
+</div>

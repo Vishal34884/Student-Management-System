@@ -1,0 +1,61 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudentManagement</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .container-fluid{
+            background-color:black;
+            color : white;  
+        }
+        body{
+            background-image:url('/image/home.png');
+           background-size : cover;
+            
+        }
+    </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/Home/Index">Student Management</a>
+            </div>
+            <ul class="nav navbar-nav">
+
+                
+                @if (User.IsInRole("admin"))
+                {
+                    <li><a href="/Home/Index">Home</a></li>
+                    <li>
+                    <li><a href="/UserAuthentication/Registration">Add Student</a></li>
+                </li>
+                <li><a href="/UserAuthentication/ChangePassword">ChangePassword</a></li>
+                    <li><a href="/UserAuthentication/Logout">Logout</a></li>
+                }
+                else
+                {
+                 <li><a href="/Home/Index">Home</a></li>
+                    <li><a href="/leave/Leave">Leave Management</a>
+
+                    </li>
+                    <li><a href="/Home/Queries">Queries</a></li>
+                    <li><a href="/UserAuthentication/ChangePassword">ChangePassword</a></li>
+                    <li><a href="/UserAuthentication/Logout">Logout</a></li>
+                }
+            </ul>
+        </div>
+    </nav>
+
+    
+    <div>
+         @RenderBody()
+    </div>
+</body>
+</html>

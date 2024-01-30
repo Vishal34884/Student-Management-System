@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Leave";
+}
+
+
+<style>
+    form {
+        border: 3px solid #f1f1f1;
+        width: 60%;
+        margin: auto;
+        margin-top: 10%;
+    }
+
+    input[type=text], input[type=password] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+
+</style>
+<h1>Leave Management</h1>
+
+
+<form asp-action="Leave" method="post">
+    <div class="form-group">
+        <label for="lid">Leave Id</label><br />
+        <input type="text" id="lid" name="lid" /><br />
+    </div>
+     <div class="form-group">
+        <label for="sid">Student Id</label><br />
+        <input type="text" id="sid" name="sid" /><br />
+    </div>
+    <div class="form-group">
+        <label for="sname">Student Name</label><br />
+        <input type="text" id="sname" name="sname" /><br />
+    </div>
+    <div class="form-group">
+        <label for="sdep">Email</label><br />
+        <input type="text" id="sdep" name="sdep" /><br />
+    </div>
+    <div class="form-group">
+        <label for="nod">Number Of Days</label><br />
+        <input type="number" id="nod" name="nod" /><br />
+    </div>
+    <div class="form-group">
+        <label for="reason">Reason</label><br />
+        <textarea id="reason" name="reason" style="height:200px"></textarea><br />
+    </div>
+    <input type="submit" class="btn btn-success" value="SUBMIT" />
+</form>
